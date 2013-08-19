@@ -1,0 +1,14 @@
+
+          <div class="nav-collapse collapse logInform">
+
+<%= form_for(resource, :class => "", :as => resource_name, :url => session_path(resource_name)) do |f| %>
+
+			  <%= f.email_field :email,:class=>"span2", :placeholder=>"Email",:autofocus => true %>
+			  <%= f.email_field :password,:class=>"span2",:type=>"password", :placeholder=>"Password"%>
+				<%= f.submit "Sign in",:class=>"btn btn-warning" %>
+<% end %>
+			<%= #render "devise/shared/links"
+			 %>
+
+          </div><!--/.nav-collapse -->
+

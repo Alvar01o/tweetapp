@@ -1,0 +1,14 @@
+<div class = "span2">
+
+  <img data-src="../../assets/js/holder/holder.js/120x120" class="img-polaroid" alt="140x140" style="width: 120px; height: 120px;padding:20px;" src="/assets/Halo Sick.png" width="100%">
+  <center>
+                       <h4 class="cntr">  <%= @user.user_name %></h4>
+
+                    <div class="clearfix"></div>
+
+<%= link_to 'Edit', edit_user_path(@user) %> | <%= link_to 'follow', new_follower_path(:follower => {:id_follow => @user.id}) %>
+
+</center> 
+</div>
+
+

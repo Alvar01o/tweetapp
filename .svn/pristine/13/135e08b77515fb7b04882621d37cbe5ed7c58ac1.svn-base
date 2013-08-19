@@ -1,0 +1,124 @@
+class UsersController < ApplicationController
+  # GET /users
+  # GET /users.json
+
+  def index
+        @followed  = Follower.where("id_user = :id_user", {id_user: current_user.id}) 
+        @id_followers = Array.new
+        @id_followers.push(current_user.id)
+        @followed.each do |f|
+          @id_followers.push(f.id_follow)
+        end     
+    @users = User.all
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.json { render json: @users }
+    end
+  end
+
+  # GET /users/1
+  # GET /users/1.json
+  def show
+   @followed  = Follower.where("id_user = :id_user", {id_user: current_user.id}) 
+
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  # GET /users/followers/:id
+  def followers
+        @followed  = Follower.where("id_user = :id_user", {id_user: current_user.id}) 
+            @id_followers = Array.new
+            @id_foll = Array.new            
+            @followed.each do |f|
+              @id_followers.push(f.id_follow)
+              @id_foll.push(f.id)              
+            end 
+
+        @followers  = Follower.where("id_follow = :id_follow", {id_follow: current_user.id})
+        @users = Array.new
+
+        @followers.each do |f|
+          user = User.find(f.id_user)
+          @users.push(user)
+
+        end
+  end
+  # GET /users/followed/:id
+  def followed
+        @followed  = Follower.where("id_user = :id_user", {id_user: current_user.id})
+        @users = Array.new
+        @followed.each do |f|
+          user = User.find(f.id_follow)
+          @users.push(user)
+
+        end
+  end
+
+  # GET /users/new
+  # GET /users/new.json
+  def new
+    @user = User.new
+    @user.user_created = Time.now.strftime("%m/%d/%Y")
+    @user.user_status = "active"
+    respond_to do |format|
+      format.html # new.html.erb
+      format.json { render json: @user }
+    end
+  end
+
+  # GET /users/1/edit
+  def edit
+    @user = User.find(params[:id])
+  end
+
+  # POST /users
+  # POST /users.json
+  def create
+    @user = User.new(params[:user])
+
+    respond_to do |format|
+      if @user.save
+        format.html { redirect_to @user, notice: 'User was successfully created.' }
+        format.json { render json: @user, status: :created, location: @user }
+      else
+        format.html { render action: "new" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /users/1
+  # PUT /users/1.json
+  def update
+    @user = User.find(params[:id])
+
+    respond_to do |format|
+      if @user.update_attributes(params[:user])
+        format.html { redirect_to @user, notice: 'User was successfully updated.' }
+        format.json { head :no_content }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @user.errors, status: :unprocessable_entity }
+      end
+    end
+  end
+
+
+  # DELETE /users/1
+  # DELETE /users/1.json
+  def destroy
+    @user = User.find(params[:id])
+    @user.destroy
+
+    respond_to do |format|
+      format.html { redirect_to users_url }
+      format.json { head :no_content }
+    end
+  end
+end

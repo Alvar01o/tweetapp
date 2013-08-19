@@ -1,0 +1,21 @@
+class HomeController < ApplicationController
+	def index
+			if  !user_signed_in?
+				redirect_to new_user_session_path
+			else 
+   				@tweet = Tweet.new
+			    @tweet.id_user = current_user.id   
+			    @tweet.tweet_status = 'active'
+			    @tweet.tweet_created = Time.now.strftime("%m/%d/%Y")	
+
+				@followed  = Follower.where("id_user = :id_user", {id_user: current_user.id})
+				@tweets =Array.new
+
+		        @followed.each do |f|
+		          tw = Tweet.where("id_user = :id_user", {id_user: f.id_follow})
+		          @tweets.push(tw)
+
+		        end 
+			end
+	end
+end

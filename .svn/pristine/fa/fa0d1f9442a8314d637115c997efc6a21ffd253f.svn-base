@@ -1,0 +1,40 @@
+
+
+      <div class="tweets span12" style="
+    margin: 10px 0;
+    padding: 4px;
+">
+        <div class="span12 contents userdiv">
+          <div class="lft">
+            <img data-src="../../assets/js/holder/holder.js/70x70" class="img-circle" alt="UserName" title="UserName" style="width: 70px; height: 70px;" src="imgs/ColorfullGirl.png">
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.s
+          </div>
+        </div>
+
+        <div class="span12 contents userdiv" style="
+    margin: 0;
+">
+          <div class="lft">
+            <img data-src="../../assets/js/holder/holder.js/70x70" class="img-circle" alt="UserName" title="UserName" style="width: 70px; height: 70px;" src="imgs/Leopardo.png">
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.s
+          </div>
+        </div>
+
+        <div class="span12 contents userdiv" style="
+    margin: 0;
+">
+          <div class="lft">
+            <img data-src="../../assets/js/holder/holder.js/70x70" class="img-circle" alt="UserName" title="UserName" style="width: 70px; height: 70px;" src="imgs/Calabaza Blanca.png">
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.s
+          </div>
+        </div>
+      </div>

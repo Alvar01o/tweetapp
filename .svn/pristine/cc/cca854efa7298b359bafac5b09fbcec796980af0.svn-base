@@ -1,0 +1,9 @@
+class Tweet < ActiveRecord::Base
+  attr_accessible :id_user, :tweet_content, :tweet_created, :tweet_status
+  belongs_to:user
+
+
+#  validates :status, :presence =>true
+#  validates :id_user, :numericality =>true,:presence =>true
+#  validates :satus, :presence =>true
+end

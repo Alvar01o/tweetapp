@@ -1,0 +1,29 @@
+<div class ="registrationDiv"> 
+
+<div class="formregistrationdiv">
+<h2>Sign up</h2>
+
+<%= form_for(resource, :as => resource_name, :url => registration_path(resource_name)) do |f| %>
+  <%= devise_error_messages! %>
+  
+
+	<%= f.text_field :user_created, :type => :hidden, :value=>Time.now.strftime("%m/%d/%Y") %>
+
+  <div><%= f.label :user_name %><br />
+  <%= f.text_field :user_name, :autofocus => true %></div>
+
+  <div><%= f.label :email %><br />
+  <%= f.email_field :email, :autofocus => true %></div>
+
+  <div><%= f.label :password %><br />
+  <%= f.password_field :password %></div>
+
+  <div><%= f.label :password_confirmation %><br />
+  <%= f.password_field :password_confirmation %></div>
+
+  <div><%= f.submit "Sign up" %></div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</div>

@@ -1,0 +1,31 @@
+<h1>Listing comments</h1>
+
+<table>
+  <tr>
+    <th>Comment status</th>
+    <th>Comment created</th>
+    <th>Coment content</th>
+    <th>Id user</th>
+    <th>Id tweet</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @comments.each do |comment| %>
+  <tr>
+    <td><%= comment.comment_status %></td>
+    <td><%= comment.comment_created %></td>
+    <td><%= comment.coment_content %></td>
+    <td><%= comment.id_user %></td>
+    <td><%= comment.id_tweet %></td>
+    <td><%= link_to 'Show', comment %></td>
+    <td><%= link_to 'Edit', edit_comment_path(comment) %></td>
+    <td><%= link_to 'Destroy', comment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Comment', new_comment_path %>

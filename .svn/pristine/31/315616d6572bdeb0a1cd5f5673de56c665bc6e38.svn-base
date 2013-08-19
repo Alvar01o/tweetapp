@@ -1,0 +1,24 @@
+<h1>Usuarios</h1>
+
+<% @users.each do |user| %>
+
+<div class = "span2" style = "float:left">
+<center>
+<%= link_to raw('<img data-src="/assets/holder.js/120x120" class="img-polaroid" alt="140x140" style="width: 120px; height: 120px;padding:20px;" src="" width="100%">'), user_path(current_user.id) %>
+<div><h4><%= user.user_name %></h4></div>
+<div style ="padding-left:25px;">
+<%= link_to raw('<i class="icon-user icon-white"></i> '), user, :class=>"btn btn-inverse lft",:style =>"margin-right:10px" %>
+<%= link_to raw('<i class="icon-road icon-white"></i> '), new_follower_path(:follower => {:id_follow => user.id}), :class=>"btn btn-inverse lft" %>
+</div>
+</center>
+ </div>
+
+
+
+<% end %>
+
+
+<div class="clearfix"></div>
+
+<%= # link_to 'New User', new_user_path
+ %>

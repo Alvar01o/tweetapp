@@ -1,0 +1,27 @@
+<%= form_for(@tweet) do |f| %>
+  <% if @tweet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tweet.errors.count, "error") %> prohibited this tweet from being saved:</h2>
+
+      <ul>
+      <% @tweet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<!--    @tweet.id_user = current_user.id   
+    @tweet.tweet_status = 'active'
+    @tweet.tweet_created = Time.now.strftime("%m/%d/%Y")  -->
+<%= f.text_field :id_user, :type => :hidden %>
+<%= f.text_field :tweet_status, :type => :hidden %>
+<%= f.text_field :tweet_created, :type => :hidden %>
+        <div class="span12 tell contents telldiv input-prepend">
+        <center>
+    <%= f.text_field :tweet_content,:class =>"span7 search-query ",:placeholder=>"¿Qué estás pensando?" %>
+
+    <a href="" class ="btn btn-success sendbutton"><i class ="icon-ok" ></i></a>
+<button type ="reset" class = "btn btn-danger cancelbutton"><i class=" icon-remove-circle"></i></button>
+      </center>
+      </div>
+<% end %>

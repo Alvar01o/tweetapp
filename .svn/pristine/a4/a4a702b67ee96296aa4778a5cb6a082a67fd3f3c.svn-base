@@ -1,0 +1,26 @@
+
+
+      <div class="tweets span12" style="margin: 10px 0;padding: 4px;">
+
+<center><%= render 'tweets/form' %>
+
+<div class="cleafix"></div>
+</center>
+<% @tweets.each do |tweet| %>
+        <div class="span12 contents userdiv">
+          <div class="lft">
+            <a href="user/<%= tweet.id_user%>"><img data-src="/assets/holder.js/50x50" class="img-circle" title="User Name" style="width: 50px; height: 50px;" src=""></a>
+            
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              <pre><%= tweet.tweet_content %></pre>
+          </div>
+        </div>
+    <%= #link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } 
+    %>
+<div class="clearfix"></div>
+<% end %>
+
+
+      </div>

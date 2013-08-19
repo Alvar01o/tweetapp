@@ -1,0 +1,40 @@
+<h1>Seguidores</h1>
+
+
+
+
+<% @users.each do |u| %>
+
+<div class = "span2" style = "float:left">
+<center>
+<%= link_to raw('<img data-src="/assets/holder.js/120x120" class="img-polaroid" alt="140x140" style="width: 120px; height: 120px;padding:20px;" src="" width="100%">'), user_path(u.id) %>
+<div><h4><%= u.user_name %></h4></div>
+<div style ="padding-left:25px;">
+<%= link_to raw('<i class="icon-user icon-white"></i> '), user_path(u.id), :class=>"btn btn-inverse lft",:style =>"margin-right:10px" %>
+
+<% count = 0 %>
+<% pos = 0 %>
+<% followed=false %>
+	<% @id_followers.each do | d| %>
+		<% count+=1 %>
+		<% if u.id==d %>
+			<% pos = count %>
+			<% followed=true %>	
+
+		<% end %>	
+
+	<% end %>
+
+<% if followed   %>		
+	<%= link_to raw('<i class="icon-ban-circle icon-white"></i> '), destroy_followed_path(@id_foll.at(pos-1)), method: :delete,:class=>"btn btn-inverse lft" %>			
+<%else%>
+	<%= link_to raw('<i class="icon-road icon-white"></i> '), new_follower_path(:follower => {:id_follow => u.id}), :class=>"btn btn-inverse lft" %>	
+<% end %>
+
+<br>
+
+</div>
+</center>
+ </div>
+<% end %>
+<br />

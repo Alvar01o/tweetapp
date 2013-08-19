@@ -1,0 +1,15 @@
+// Place all the styles related to the users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+label {
+font-weight:bold;	
+margin-bottom:17px;		
+}
+
+.resheader {
+border-top-left-radius: 23px;
+margin-bottom: -10px;
+border-top-right-radius: 23px;
+background: #ccc;
+}

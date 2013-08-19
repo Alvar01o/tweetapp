@@ -1,0 +1,22 @@
+<h1>Lista Tweets</h1>
+
+
+<% @tweets.each do |tweet| %>
+        <div class="span12 contents userdiv">
+          <div class="lft">
+            <a href="users/<%= tweet.id_user%>"><img data-src="/assets/holder.js/50x50" class="img-circle" title="User Name" style="width: 50px; height: 50px;" src=""></a>
+            
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              <pre><%= tweet.tweet_content %></pre>
+          </div>
+        </div>
+    <%= #link_to 'Destroy', tweet, method: :delete, data: { confirm: 'Are you sure?' } 
+    %>
+<div class="clearfix"></div>
+<% end %>
+
+<br />
+
+

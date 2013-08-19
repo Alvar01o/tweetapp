@@ -1,0 +1,33 @@
+
+
+      <div class="tweets span12" style="margin: 10px 0;padding: 4px;">
+
+<center><%= render 'tweets/form' %>
+
+<div class="cleafix"></div>
+</center>
+
+<% @tweets.each do |tweet| %>
+      
+      <% tweet.each do |t| %>
+
+        <div class="span12 contents userdiv">
+
+          <div class="lft">
+            <a href="users/<%= t.id_user%>"><img data-src="/assets/holder.js/50x50" class="img-circle" title="User Name" style="width: 50px; height: 50px;margin-right:10px" src=""></a> <small> ::</small> 
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              <pre><%= t.tweet_content %><% if t.id_user == current_user.id%><a href="/tweets/<%= t.id%>" data-method="delete" title="Eliminar Tweet" class="btn btn-inverse rgt"><i class="icon-remove-circle"></i></a><%  end %><small class = "rgt" style=" margin-right: 10px; "><%= t.created_at%></small>..</pre>
+          </div>
+        </div>
+
+      <% end %>      
+
+<br>
+<div class="clearfix"></div>
+<% end %>
+
+ 
+
+      </div>

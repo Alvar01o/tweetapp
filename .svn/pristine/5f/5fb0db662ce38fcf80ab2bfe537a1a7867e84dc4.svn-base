@@ -1,0 +1,19 @@
+
+
+      <div class="tweets span12" style="margin: 10px 0;padding: 4px;">
+
+<center><%= render 'tweets/form' %>
+
+<div class="cleafix"></div>
+</center>
+        <div class="span12 contents userdiv">
+          <div class="lft">
+            <img data-src="/assets/holder.js/70x70" class="img-circle" alt="UserName" title="UserName" style="width: 70px; height: 70px;" src="">
+          </div>
+
+          <div class="rgt" style="width:85%;">
+              Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Donec odio. Quisque volutpat mattis eros. Nullam malesuada erat ut turpis. Suspendisse urna nibh, viverra non, semper suscipit, posuere a, pede.s
+          </div>
+        </div>
+
+      </div>

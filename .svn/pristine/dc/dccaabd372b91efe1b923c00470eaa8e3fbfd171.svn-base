@@ -1,0 +1,134 @@
+
+<html>
+<head>
+    <meta charset="utf-8">	
+  <title>Tweetapp</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application", :media => "all" %>
+  <%= csrf_meta_tags %>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Alvaro Mercado">
+
+    <style type="text/css">
+    body {
+    	position: fixed;
+      width: 100%; 
+    }
+    .inner{
+      margin-top: 5%;
+      padding:25px;
+      height: 100%
+    }
+    .lft { float:left; }
+    .rgt { float:right; }
+    .cntr {
+      margin-left:auto !important;
+      margin-right:auto !important;
+    } 
+    }
+
+    .contents {
+		    background-color: #f5f5f5;	
+    }
+    </style>
+
+
+
+</head>
+
+<body>
+<p class="navbar-text pull-right">
+
+
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="navbar-inner">
+        
+          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+
+          <div class="nav-collapse collapse">
+
+				<% if user_signed_in? %>
+
+          <div class = "lft span6" style ="margin-top: 9px;color: #fff;">
+          <a class="brand lft span2" href="#" style =  "float:left">Tweets app</a>
+          <span class="span3" style =  "float:left;margin-top: 11px;">          Bienvenid@ <strong><%= current_user.user_name %></strong>.</span>
+          </div>
+
+
+
+
+<div class ="rgt span3" style=" float: right; height: 100%; ">
+           <ul class="nav rgt">
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">My account <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li>  <%= link_to "View account", user_path(current_user.id) %></li>                  
+                  <li>  <%= link_to "Edit account", edit_user_path(current_user.id) %></li>                  
+
+                  <li class="divider"></li>
+                  <li class="nav-header">Aditional</li>
+                  <li>  <%= link_to "Config. account", edit_user_registration_path(current_user.id) %></li>                  
+                </ul>
+              </li>
+            </ul>
+
+          <%= link_to raw('<i class="icon-off icon-white"></i>') , destroy_user_session_path, method: :delete, :class => 'btn btn-inverse', :title => "Salir"  %>
+</div>
+
+
+
+
+				<% else %>
+							<%= render 'devise/sessions/login' %>
+
+				<% end %>
+          </div><!--/.nav-collapse -->
+        
+      </div>
+    </div>
+
+
+        <% if user_signed_in? %>
+
+          <div class="container-fluid" style="height:100%;">
+            <div class="row-fluid" style="background : #fff;">
+              <div class="inner">
+                <!--Columns left-->
+                  <div id="lftColum" class="span2" style="margin: 0 5px;">
+                    <div class="span12 contents">
+                        <img data-src="../../assets/js/holder/holder.js/120x120" class="img-polaroid" alt="140x140" style="width: 120px; height: 120px;padding:20px;" src="/assets/Calabaza Blanca.png" width="100%">
+                      <h4 class="cntr"><%= current_user.user_name %></h4>
+                      <div class="clearfix"></div>
+                      <ul class="nav nav-list">
+                        <li><a href="">Followers</a></li>
+                        <li class="divider"></li>
+                        <li><a href="">Followeds</a></li>
+                      </ul>
+                  
+                    </div>
+                  </div>
+                <!--Columns Rigth-->
+                <div id="rgtColum" class="span10" style="margin: 0 5px;">
+                    <%= yield %>  
+                  </div>
+  
+              <div>
+            <div>
+          <div> 
+        <% else %>
+
+              <%= render 'devise/registrations/new' %>
+
+        <% end %>
+
+
+
+
+
+</body>
+</html>

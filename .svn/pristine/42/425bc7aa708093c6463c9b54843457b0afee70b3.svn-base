@@ -1,0 +1,35 @@
+<div class = "span8 viewUser">
+<center>
+	<div class = "resheader" ><h3>Resumen Del Perfil</h3></div>
+</center>
+<div  style=" border: 1px solid #9C9CA2; padding: 2%;">
+
+<center>
+
+
+  <img data-src="/assets/holder.js/120x120" class="img-polaroid" alt="140x140" style="width: 120px; height: 120px;padding:20px;"  width="100%">
+
+                       <h4 class="cntr">  <%= @user.user_name %></h4>
+
+
+                    <div class="clearfix"></div>
+
+
+		<%= link_to 'follow', new_follower_path(:follower => {:id_follow => @user.id}), :class => 'btn btn-inverse' %>
+
+
+</center> 
+<p></p>
+<div class="clearfix"></div>
+<center>	<table class="table " style = "margin-top: 20px; width: 76%;" >
+		<tbody>
+			<tr><td><strong>User Name</strong>	</td><td><%= @user.user_name %></td> </tr>
+			<tr><td><strong>User email</strong>	</td><td><%= @user.email %></td> </tr>
+			<tr><td><strong>User created</strong>	</td><td><%= @user.created_at %></td> </tr>			
+			<tr><td><strong>Last sign in</strong>	</td><td><%= @user.last_sign_in_at %></td> </tr>	
+		</tbody>
+	</table>
+</center>
+</div>
+
+</div>
